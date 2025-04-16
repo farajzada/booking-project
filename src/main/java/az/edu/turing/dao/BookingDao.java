@@ -1,13 +1,15 @@
 package az.edu.turing.dao;
 
-public interface BookingDao {
-    void createBooking(int flightId, int passengerId);
+import az.edu.turing.entity.Booking;
 
-    void deleteBooking(int bookingId);
+import java.util.List;
+import java.util.Optional;
 
-    void updateBooking(int bookingId, int flightId, int passengerId);
+public interface BookingDao{
+    Optional<Booking> getById(Long id);
+    List<Booking> getAll();
+    Optional<Booking> save(Booking booking,List<Long> passengerIds);
+    Optional<Booking> update(Booking booking);
+    void delete(Long id);
 
-    void getBookingById(int bookingId);
-
-    void getAllBookings();
 }
