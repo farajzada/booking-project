@@ -1,14 +1,15 @@
 package az.edu.turing.dao;
 
+import az.edu.turing.entity.Flight;
+
+import java.util.List;
+import java.util.Optional;
+
 public interface FlightDao {
-    void createFlight(int flightId, String flightNumber, String departure, String arrival, String date, String time);
-
-    void deleteFlight(int flightId);
-
-    void updateFlight(int flightId, String flightNumber, String departure, String arrival, String date, String time);
-
-    void getFlightById(int flightId);
-
-    void getAllFlights();
+    Optional<Flight> getById(Long id);
+    List<Flight> getAll();
+    Optional<Flight> save(Flight flight);
+    Optional<Flight> update(Flight flight);
+    void delete(Long id);
 
 }
